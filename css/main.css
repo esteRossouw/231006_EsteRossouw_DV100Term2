@@ -1,0 +1,250 @@
+.col-6-box{
+    margin-left: -200px;
+    margin-top: 110px;
+}
+
+.col-4-heading{
+    text-align: center;
+}
+.col-4-left{
+    margin-top: 200px;
+    text-align: right;
+}
+.col-4-right{
+    margin-top: 200px;
+}
+
+.col-4-logo{
+    margin-top: 70px;
+    margin-left: 30px;
+}
+.col-4-copy{
+    color: #feeedf;
+    text-align: center;
+    margin-top: 100px;
+}
+.col-4-icons{
+    margin-left: 325px;
+}
+
+.col-6-image{
+    margin-top: 170px;
+    margin-left: 100px;
+}
+.col-6-spice{
+    margin-top: 30px;
+    margin-left: 190px;
+}
+.col-6-sauce{
+    margin-top: 30px;
+    margin-left: 190px;
+}
+.col-6-heading{
+    margin-top: 50px;
+    margin-left: -200px;
+}
+.col-6-form{
+    margin-top: 30px;
+}
+
+
+.image-finish{
+    margin-left: 650px;
+}
+
+.container{
+   background-color: bisque;
+   text-align: center;
+   border-radius: 20px;
+   margin-top: 30px;
+   padding-top: 20px;
+   padding-bottom: 5px;
+   
+}
+
+.col-6-box h1{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.col-6-box p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.col-4-heading h1{
+    font-family: 'Nosifer', cursive;
+    color: #d73318
+}
+.col-4-left p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.col-4-right p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.col-4-copy p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.col-4-copy h3{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.jumbotron h1{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.jumbotron p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.card-body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.col-6-heading h2{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.col-6-form h3{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.col-6-form h4{
+    font-family: 'Anton', sans-serif;
+}
+.filling h3{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.filling h4{
+    font-family: 'Anton', sans-serif;
+}
+.toppings h3{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.toppings h4{
+    font-family: 'Anton', sans-serif;
+}
+.veg {
+    font-family: 'Anton', sans-serif;
+}
+.season {
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+
+.sauce {
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.add {
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.heading {
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.items {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.total h2{
+    font-family: 'Anton', sans-serif;
+    color: #d73318
+}
+.total h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #d73318
+}
+
+.btn-one{
+    width: 100px;
+    height: 80px;
+    background-color: #d73318;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #feeedf;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+}
+.btn-two{
+    width: 100px;
+    height: 80px;
+    background-color: transparent;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #d73318;
+    text-align: center;
+    margin-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+
+.btn-search{
+    width: 80px;
+    height: 40px;
+    background-color: transparent;
+    border: 3px solid #d73318;
+    border-radius: 5px;
+    color: #d73318;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    
+}
+.btn-pay{
+    width: 100px;
+    height: 60px;
+    background-color: transparent;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #d73318;
+    text-align: center;
+    margin-left: 510px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+.btn-submit{
+    width: 100px;
+    height: 60px;
+    background-color: transparent;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #d73318;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+
+.nav-link dropdown-toggle{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.nav-link{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.dropdown-menu{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.navbar-brand{
+    font-family: 'Anton', sans-serif;
+    color: #d73318;
+}

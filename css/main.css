@@ -39,6 +39,11 @@
     margin-top: 30px;
     margin-left: 190px;
 }
+
+.col-6-drink{
+    margin-top: 30px;
+    margin-left: 190px;
+}
 .col-6-heading{
     margin-top: 50px;
     margin-left: -200px;
@@ -251,11 +256,29 @@
     cursor: pointer;
     
 }
+
 .btn-pay{
     width: 100px;
     height: 60px;
-    background-color: transparent;
+    background-color: #d73318;
     border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #feeedf;
+    text-align: center;
+    margin-left: 510px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+.btn-pay:hover {
+    width: 100px;
+    height: 60px;
+    background-image: url(/icons/Bite1.png);
+    background-size: cover;
     border-radius: 10px;
     color: #d73318;
     text-align: center;
@@ -275,6 +298,24 @@
     border: 3px solid #d73318;
     border-radius: 10px;
     color: #d73318;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+.btn-submit:hover {
+    width: 100px;
+    height: 60px;
+    background-image: url(/icons/Bite2.png);
+    background-size: cover;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #feeedf;
     text-align: center;
     margin-top: 20px;
     padding-top: 7px;

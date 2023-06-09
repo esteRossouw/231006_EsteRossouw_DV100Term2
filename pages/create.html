@@ -46,7 +46,7 @@
                   <a class="dropdown-item" href="#">Subs of the Month</a>
                   </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="#">Build Own Sub</a>
                 </li>
                 <li class="nav-item">
@@ -60,7 +60,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="background-color: #feeedf; height: 1680px;">
+    <div class="container-fluid" style="background-color: #feeedf; height: 1830px;">
         <div class="row">
             <div class="col-6">
                 <div class="col-6-image">
@@ -72,6 +72,10 @@
                 <div class="col-6-sauce">
                     <img src="/icons/sauce.png"  height="200px" alt="Sauce">
                 </div>
+  
+                <div class="col-6-drink">
+                  <img src="/icons/Drink.png"  height="200px" alt="drink">
+                </div>
             </div>
 
             <div class="col-6">
@@ -79,247 +83,312 @@
                     <h2>Build your own SUPER Sub!</h2>
                 </div>
                 <div class="col-6-form">
+                  <form id="subForm">
                         <h3>BASE</h3>
                         <h4>Choose your BREAD:</h4>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="italian" value="option1" checked>
+                        <label class="form-check-label" for="italian">
                           Italian
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="italianToast" value="option1" checked>
+                        <label class="form-check-label" for="italianToast">
                           Italian Toasted
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="garlic" value="option2">
+                        <label class="form-check-label" for="garlic">
                           Garlic
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="garlicToast" value="option1" checked>
+                        <label class="form-check-label" for="garlicToast">
                           Garlic Toasted
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                        <label class="form-check-label" for="exampleRadios3">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="wholeWheat" value="option3">
+                        <label class="form-check-label" for="wholeWheat">
                           Whole Wheat
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="wholeWheatToast" value="option1" checked>
+                        <label class="form-check-label" for="wholeWheatToast">
                           Whole Wheat Toasted
                         </label>
+                        <span class="item-price">$1</span>
                     </div>
-                </div>
+  
                 <br>
                 <div class="filling"><h3>FILLING</h3>
                 <h4>Choose your PROTEIN:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Tofu
-                    </label>
+                 <input class="form-check-input" type="checkbox" value="" id="tofu">
+                 <label class="form-check-label" for="tofu">
+                 Tofu
+                 </label>
+                 <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="haloumi">
+                    <label class="form-check-label" for="haloumi">
                       Haloumi
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="chicken">
+                    <label class="form-check-label" for="chicken">
                       Chicken (halaal)
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="steak">
+                    <label class="form-check-label" for="steak">
                       Shredded Steak (halaal)
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="tuna">
+                    <label class="form-check-label" for="tuna">
                       Tuna
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <br>
                 <div class="toppings"><h3>TOPPINGS</h3>
                 <h4>Choose your CHEESE:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="swiss">
+                    <label class="form-check-label" for="swiss">
                       Swiss
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="cheddar">
+                    <label class="form-check-label" for="cheddar">
                       Shredded Cheddar
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="mozzarella">
+                    <label class="form-check-label" for="mozzarella">
                       Shredded Mozzarella
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="white">
+                    <label class="form-check-label" for="white">
                       White American
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <br>
                 <div class="veg"><h4>Choose your Vegetables:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="green">
+                    <label class="form-check-label" for="green">
                       Green peppers
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="jalapeno">
+                    <label class="form-check-label" for="jalapeno">
                       Jalapeno peppers
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="lettuce">
+                    <label class="form-check-label" for="lettuce">
                       Lettuce
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="mushrooms">
+                    <label class="form-check-label" for="mushrooms">
                       Mushrooms
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="olives">
+                    <label class="form-check-label" for="olives">
                       Olives
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="onions">
+                    <label class="form-check-label" for="onions">
                       Onions
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="dews">
+                    <label class="form-check-label" for="dews">
                       Pepperdew peppers
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="pickles">
+                    <label class="form-check-label" for="pickles">
                       Pickles
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="tomato">
+                    <label class="form-check-label" for="tomato">
                       Tomato
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <br>
                 <div class="season"><h4>Add your SEASONINGS:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="pepper">
+                    <label class="form-check-label" for="pepper">
                       Black pepper
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="herb">
+                    <label class="form-check-label" for="herb">
                       Lemon & Herb
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="peri">
+                    <label class="form-check-label" for="peri">
                       Peri-peri
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="aromat">
+                    <label class="form-check-label" for="aromat">
                       Aromat <i>(limited edition only)</i>
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <br>
                 <div class="sauce"><h4>Choose your SAUCE:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="honey">
+                    <label class="form-check-label" for="honey">
                       Honey mustard
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="mustard">
+                    <label class="form-check-label" for="mustard">
                       Mustard
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="mayo">
+                    <label class="form-check-label" for="mayo">
                       Mayonnaise
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="oil">
+                    <label class="form-check-label" for="oil">
                       Olive oil
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="ranch">
+                    <label class="form-check-label" for="ranch">
                       Ranch
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="tomatoSauce">
+                    <label class="form-check-label" for="tomatoSauce">
                       Tomato
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="tzatziki">
+                    <label class="form-check-label" for="tzatziki">
                       Tzatziki
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <br>
                 <div class="add"><h4>Add ons:</h4></div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="crispy">
+                    <label class="form-check-label" for="crispy">
                       Crispy onions
                     </label>
+                    <span class="item-price">$1</span>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="avo">
+                    <label class="form-check-label" for="avo">
                       Smashed avocado
                     </label>
+                    <span class="item-price">$1</span>
                 </div>  
-                <input class="btn-submit" type="submit" value="Submit">
+                <br>
+                <div class="add"><h4>Choose your DRINK:</h4></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="soda">
+                    <label class="form-check-label" for="soda">
+                      Soda
+                    </label>
+                    <span class="item-price">$1</span>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="slushie">
+                    <label class="form-check-label" for="slushie">
+                      Slushie
+                    </label>
+                    <span class="item-price">$1</span>
+                </div>  
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="milkshake">
+                  <label class="form-check-label" for="milkshake">
+                    Milkshake
+                  </label>
+                  <span class="item-price">$1</span>
+                </div> 
+                <span id="totalCost"></span>
+                <div id="selectedOptions"></div>
+                <span id="price"></span>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
             </div>
+          </div>
         </div>
     </div>
     
@@ -353,6 +422,7 @@
                 </div>
             </div>
         </div>
+      
     </footer>
 
 </body>

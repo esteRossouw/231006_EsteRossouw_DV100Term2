@@ -167,6 +167,23 @@
     cursor: pointer;
     font-family: 'Anton', sans-serif;
 }
+.btn-one:hover {
+    width: 100px;
+    height: 80px;
+    background-image: url(/icons/Bite1.png);
+    background-size: cover;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #d73318;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+}
+
 .btn-two{
     width: 100px;
     height: 80px;
@@ -184,14 +201,48 @@
     font-weight: bold;
     font-family: 'Anton', sans-serif;
 }
+.btn-two:hover {
+    width: 100px;
+    height: 80px;
+    background-image: url(/icons/Bite2.png);
+    background-size: cover;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #feeedf;
+    text-align: center;
+    margin-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
 
 .btn-search{
     width: 80px;
     height: 40px;
     background-color: transparent;
     border: 3px solid #d73318;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #d73318;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    
+}
+.btn-search:hover {
+    width: 80px;
+    height: 40px;
+    background-image: url(/icons/Bite2.png);
+    background-size: cover;
+    border: 3px solid #d73318;
+    border-radius: 10px;
+    color: #feeedf;
     text-align: center;
     padding-top: 1px;
     padding-bottom: 1px;

@@ -340,3 +340,18 @@
     font-family: 'Anton', sans-serif;
     color: #d73318;
 }
+
+.sandwich:hover{
+    transform: scale(1.2);
+}
+
+.card-title{
+    font-family: 'Anton', sans-serif;
+    color: #d73318; 
+}
+.card-title p{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.card-text{
+    font-family: 'Roboto Condensed', sans-serif;
+}

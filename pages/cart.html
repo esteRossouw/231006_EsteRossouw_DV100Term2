@@ -43,8 +43,8 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/index.html">Home</a>
                   <div class="dropdown-divider"></div>  
-                  <a class="dropdown-item" href="#">About Us</a>
-                  <a class="dropdown-item" href="#">Subs of the Month</a>
+                  <a class="dropdown-item" href="/index.html">About Us</a>
+                  <a class="dropdown-item" href="/index.html">Subs of the Month</a>
                   </div>
                 </li>
                 <li class="nav-item">
@@ -73,10 +73,13 @@
                     <h4>Subs Ordered:</h4>
                      <ul id="itemsOrdered"></ul>
                      <div id="cart-container"></div>
-                    <button type="button" class="btn-pay">
-                    <h2>Pay</h2>
-                    </button>
+                     <div id="totalCostContainer">Total Cost: $0.00</div>
+                     <input type="text" id="discountCodeInput" placeholder="Enter discount code">
+                    <button type="button" id="applyDiscountButton">Apply Discount</button>
                 </div>
+                <button type="button" class="btn-pay">
+                    <h2>Pay</h2>
+                </button>
            </div>
         </div>
     </div>
@@ -113,90 +116,104 @@
         </div>
     </footer>
     <script>
-        window.addEventListener("DOMContentLoaded", function() {
+       window.addEventListener("DOMContentLoaded", function() {
         
-        const itemName = localStorage.getItem("itemName") || "";
+         const itemName = localStorage.getItem("itemName") || "";
 
-        const btnPay = document.querySelector(".btn-pay");
+         const btnPay = document.querySelector(".btn-pay");
 
-        btnPay.addEventListener("click", function() {
-        localStorage.removeItem("cartItems");
-        location.reload();})
+         btnPay.addEventListener("click", function() {
+            localStorage.removeItem("cartItems");
+         location.reload();})
      
-        document.getElementById("itemName").textContent = itemName});
+         document.getElementById("itemName").textContent = itemName});
 
-        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        updateCartPage();
+            var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            updateCartPage();
 
-        var addButtons = document.getElementsByClassName("btn-one");
+            var addButtons = document.getElementsByClassName("btn-one");
     
-        for (var i = 0; i < addButtons.length; i++) {
-        addButtons[i].addEventListener("click", addToCart);
-        }
-
-        function addToCart(event) {
-         event.preventDefault();
-         var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
-         cartItems.push(value);
-         updateCartPage();
-        }
-    
-        function updateCartPage() {
-         var cartContainer = document.getElementById("cart-container");
-    
-        
-            cartContainer.innerHTML = "";
-    
-        
-            for (var i = 0; i < cartItems.length; i++) {
-                var cartItem = document.createElement("p");
-                var itemName = localStorage.getItem("itemName") || "";
-                cartItem.textContent = "Sub: " + itemName + " - $" + cartItems[i];
-                cartContainer.appendChild(cartItem);
+            for (var i = 0; i < addButtons.length; i++) {
+            addButtons[i].addEventListener("click", addToCart);
             }
-        }
-        const totalCostElement = document.getElementById("totalCost");
-        const itemsOrderedElement = document.getElementById("itemsOrdered");
+
+         function addToCart(event) {
+             event.preventDefault();
+             var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
+             cartItems.push(value);
+             updateCartPage();
+            }
+            
+            function updateCartPage() {
+            var cartContainer = document.getElementById("cart-container");
+            var totalCostContainer = document.getElementById("totalCostContainer");
+            var totalCost = 0;
+
+            cartContainer.innerHTML = "";
+
+            for (var i = 0; i < cartItems.length; i++) {
+            var cartItem = document.createElement("p");
+            var itemName = localStorage.getItem("itemName") || "";
+            cartItem.textContent = "Sub: " + itemName + " - $" + cartItems[i];
+            cartContainer.appendChild(cartItem);
+
+            totalCost += cartItems[i]; 
+            }
+
+            totalCostContainer.textContent = "Total Cost: $" + totalCost.toFixed(2); // Display the total cost
+            }
+            const itemsOrderedElement = document.getElementById("itemsOrdered");
 
 
-        function calculateTotalCost() {
-            const breadPrice = parseFloat(document.querySelector('input[name="bread"]:checked').value);
-            const meatPrice = parseFloat(document.querySelector('input[name="meat"]:checked').value);
-            const toppingsPrices = Array.from(document.querySelectorAll('input[name="toppings"]:checked'))
-            .map(checkbox => parseFloat(checkbox.value));
-            const totalCost = breadPrice + meatPrice + toppingsPrices.reduce((acc, curr) => acc + curr, 0);
-            totalCostElement.textContent = totalCost.toFixed(2);
-        }
-        function updateItemsOrdered() {
-            const itemName = document.getElementById("itemName").value;
-         const breadName = document.querySelector('input[name="bread"]:checked').nextSibling.textContent.trim();
-         const meatName = document.querySelector('input[name="meat"]:checked').nextSibling.textContent.trim();
-         const toppingsNames = Array.from(document.querySelectorAll('input[name="toppings"]:checked'))
-         .map(checkbox => checkbox.nextSibling.textContent.trim());
+        
+            function updateItemsOrdered() {
+             const itemName = document.getElementById("itemName").value;
+             const breadName = document.querySelector('input[name="bread"]:checked').nextSibling.textContent.trim();
+            const meatName = document.querySelector('input[name="meat"]:checked').nextSibling.textContent.trim();
+            const toppingsNames = Array.from(document.querySelectorAll('input[name="toppings"]:checked'))
+            .map(checkbox => checkbox.nextSibling.textContent.trim());
 
   
-            const listItem = document.createElement("li");
+             const listItem = document.createElement("li");
             listItem.textContent = `Sub: ${itemName} - Bread: ${breadName} - Meat: ${meatName} - Toppings: ${toppingsNames.join(", ")}`;
 
   
             itemsOrderedElement.appendChild(listItem);
-        }
+            }
 
 
-        document.querySelectorAll('input[name="bread"]').forEach(radio => {
-        radio.addEventListener("change", calculateTotalCost);
-        });
-        document.querySelectorAll('input[name="meat"]').forEach(checkbox => {
-        checkbox.addEventListener("change", calculateTotalCost);
-        });
-        document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
-        checkbox.addEventListener("change", calculateTotalCost);
-        });
-        document.getElementById("orderForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-         updateItemsOrdered();
-         });
+            document.querySelectorAll('input[name="bread"]').forEach(radio => {
+            radio.addEventListener("change", calculateTotalCost);
+            });
+            document.querySelectorAll('input[name="meat"]').forEach(checkbox => {
+            checkbox.addEventListener("change", calculateTotalCost);
+            });
+            document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
+            checkbox.addEventListener("change", calculateTotalCost);
+            });
+            document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            updateItemsOrdered();
+            });
 
+            var discountCodeInput = document.getElementById("discountCodeInput");
+            var applyDiscountButton = document.getElementById("applyDiscountButton");
+
+            applyDiscountButton.addEventListener("click", applyDiscount);
+
+            function applyDiscount() {
+            var discountCode = discountCodeInput.value;
+            if (discountCode === "mikesChoice") { // Answer is mikesChoice
+            var totalCost = parseFloat(totalCostElement.textContent);
+            var discountedCost = totalCost * 0.1; 
+            totalCostElement.textContent = discountedCost.toFixed(2);
+            alert("Mike's special discount applied successfully!");
+            } else {
+            alert("Invalid discount code.");
+            }
+            }
+            updateCartPage();
+    
     </script>
 
 </html>

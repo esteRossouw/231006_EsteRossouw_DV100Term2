@@ -66,7 +66,13 @@
             <img src="/icons/finish.png"  height="200px" alt="Finnish each other's sandwiches" style="margin-top: 30px;">
         </div>
         <div class="container-fluid" style="background-color: #feeedf; height: 100vh;">
-              
+            <div class="col-6-cart">
+                <h2>Your Cart</h2>
+                <h4>Items Ordered:</h4>
+                <ul id="itemsOrdered"></ul>
+                <div id="cart-container"></div>
+                <p>Total Cost: $<span id="totalCost">0</span></p>
+            </div>
         </div>
     </div>
 
@@ -102,34 +108,76 @@
         </div>
     </footer>
    <script>
-    var cartItems = [];
+        var cartItems = [];
 
-    var addButtons = document.getElementsByClassName("btn-one");
+        var addButtons = document.getElementsByClassName("btn-one");
     
-    for (var i = 0; i < addButtons.length; i++) {
+        for (var i = 0; i < addButtons.length; i++) {
         addButtons[i].addEventListener("click", addToCart);
-    }
+        }
 
-    function addToCart(event) {
-        event.preventDefault();
-        var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
-        cartItems.push(value);
-        updateCartPage();
-    }
+        function addToCart(event) {
+         event.preventDefault();
+         var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
+         cartItems.push(value);
+         updateCartPage();
+        }
     
-    function updateCartPage() {
-        var cartContainer = document.getElementById("cart-container");
-    
-        
-        cartContainer.innerHTML = "";
+        function updateCartPage() {
+         var cartContainer = document.getElementById("cart-container");
     
         
-        for (var i = 0; i < cartItems.length; i++) {
+            cartContainer.innerHTML = "";
+    
+        
+         for (var i = 0; i < cartItems.length; i++) {
             var cartItem = document.createElement("p");
             cartItem.textContent = "Item " + (i + 1) + ": $" + cartItems[i];
             cartContainer.appendChild(cartItem);
+            }
         }
-    }
+   
+        const totalCostElement = document.getElementById("totalCost");
+        const itemsOrderedElement = document.getElementById("itemsOrdered");
+
+
+        function calculateTotalCost() {
+            const breadPrice = parseFloat(document.querySelector('input[name="bread"]:checked').value);
+            const meatPrice = parseFloat(document.querySelector('input[name="meat"]:checked').value);
+            const toppingsPrices = Array.from(document.querySelectorAll('input[name="toppings"]:checked'))
+            .map(checkbox => parseFloat(checkbox.value));
+            const totalCost = breadPrice + meatPrice + toppingsPrices.reduce((acc, curr) => acc + curr, 0);
+            totalCostElement.textContent = totalCost.toFixed(2);
+        }
+        function updateItemsOrdered() {
+            const itemName = document.getElementById("itemName").value;
+         const breadName = document.querySelector('input[name="bread"]:checked').nextSibling.textContent.trim();
+         const meatName = document.querySelector('input[name="meat"]:checked').nextSibling.textContent.trim();
+         const toppingsNames = Array.from(document.querySelectorAll('input[name="toppings"]:checked'))
+         .map(checkbox => checkbox.nextSibling.textContent.trim());
+
+  
+            const listItem = document.createElement("li");
+            listItem.textContent = `Sub: ${itemName} - Bread: ${breadName} - Meat: ${meatName} - Toppings: ${toppingsNames.join(", ")}`;
+
+  
+            itemsOrderedElement.appendChild(listItem);
+        }
+
+
+        document.querySelectorAll('input[name="bread"]').forEach(radio => {
+        radio.addEventListener("change", calculateTotalCost);
+        });
+        document.querySelectorAll('input[name="meat"]').forEach(checkbox => {
+  checkbox.addEventListener("change", calculateTotalCost);
+});
+        document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
+        checkbox.addEventListener("change", calculateTotalCost);
+        });
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  updateItemsOrdered();
+});
     </script> 
 </body>
 

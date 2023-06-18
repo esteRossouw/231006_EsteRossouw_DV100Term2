@@ -84,6 +84,10 @@
                 </div>
                 <div class="col-6-form">
                 <form id="orderForm">
+                  <div class="mb-3">
+                    <label for="itemName" class="form-label">Sub's Name:</label>
+                    <input type="text" class="form-control" name="sub" id="itemName" required>
+                  </div>
                         <h3>BASE</h3>
                         <h4>Choose your BREAD:</h4>
                     <div class="form-check">
@@ -440,6 +444,8 @@
   var sauceCost = parseFloat(document.querySelector('input[name="sauce"]:checked').value);
   var addCost = parseFloat(document.querySelector('input[name="add"]:checked').value);
   var drinkCost = parseFloat(document.querySelector('input[name="drink"]:checked').value);
+  const subName = document.getElementById("itemName").value;
+ 
   // Calculate the total cost
   var totalCost = breadCost + meatCost + toppingsCost + seasoningCost + sauceCost + addCost + drinkCost;
 
@@ -448,7 +454,7 @@
   totalCostElement.textContent = 'Total Cost: $' + totalCost.toFixed(2);
 
   // Show an alert message
-  alert('Form submitted! Total cost: $' + totalCost.toFixed(2));
+  alert('The kitchen has received your Sub order: ' + subName + '! Total cost: $' + totalCost.toFixed(2) + 'Go to Cart for payment options.');
 });</script>
 </body>
 </html>

@@ -69,13 +69,14 @@
             <div class="container">
                 <div class="order">
                     <div class="col-6-cart">
-                    <h2>Your Cart</h2>
-                    <h4>Subs Ordered:</h4>
-                     <ul id="itemsOrdered"></ul>
-                     <div id="cart-container"></div>
-                     <div id="totalCostContainer">Total Cost: $0.00</div>
-                     <input type="text" id="discountCodeInput" placeholder="Enter discount code">
-                    <button type="button" id="applyDiscountButton">Apply Discount</button>
+                     <h2>Your Cart</h2>
+                     <h4>Subs Ordered:</h4>
+                        <ul id="itemsOrdered"></ul>
+                        <div id="cart-container"></div>
+                        <div id="totalCostContainer">Total Cost: $0.00</div>
+                        <input type="text" id="discountCodeInput" placeholder="Enter discount code">
+                        <button type="button" id="applyDiscountButton">Apply Discount</button>
+                    </div>
                 </div>
                 <button type="button" class="btn-pay">
                     <h2>Pay</h2>
@@ -125,7 +126,7 @@
          btnPay.addEventListener("click", function() {
             localStorage.removeItem("cartItems");
          location.reload();})
-     
+            
          document.getElementById("itemName").textContent = itemName});
 
             var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -163,8 +164,25 @@
             totalCostContainer.textContent = "Total Cost: $" + totalCost.toFixed(2); 
             }
             const itemsOrderedElement = document.getElementById("itemsOrdered");
+            var discountCodeInput = document.getElementById("discountCodeInput");
+             var applyDiscountButton = document.getElementById("applyDiscountButton");
+             var totalCostElement = document.getElementById("totalCostContainer");
 
+             applyDiscountButton.addEventListener("click", applyDiscount);
 
+            function applyDiscount() {
+             var discountCode = discountCodeInput.value;
+             if (discountCode === "mikesChoice") { //answer is mikesChoice
+             var totalCost = parseFloat(totalCostElement.textContent.split("$")[1]);
+             var discountedCost = totalCost * 0.9; // 10% discount
+             totalCostContainer.textContent = "Total Cost: $" + discountedCost.toFixed(2);
+             alert("Mike's special discount applied successfully!");
+             updateCartPage();
+             } else {
+                 alert("Invalid discount code.");
+             }
+             }
+             
         
             function updateItemsOrdered() {
              const itemName = document.getElementById("itemName").value;
@@ -195,28 +213,6 @@
             event.preventDefault();
             updateItemsOrdered();
             });
-
-            var discountCodeInput = document.getElementById("discountCodeInput");
-             var applyDiscountButton = document.getElementById("applyDiscountButton");
-             var totalCostElement = document.getElementById("totalCostContainer");
-
-             applyDiscountButton.addEventListener("click", applyDiscount);
-
-            function applyDiscount() {
-             var discountCode = discountCodeInput.value;
-             if (discountCode === "mikesChoice") {
-             var totalCost = parseFloat(totalCostElement.textContent.split("$")[1]);
-             var discountedCost = totalCost * 0.9; // 10% discount
-             totalCostElement.textContent = "Total Cost: $" + discountedCost.toFixed(2);
-             alert("Mike's special discount applied successfully!");
-             updateCartPage();
-             } else {
-                 alert("Invalid discount code.");
-             }
-             }
-
-            
-    
     </script>
 
 </html>

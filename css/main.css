@@ -449,3 +449,50 @@
     font-family: 'Anton', sans-serif;
     color: #2b2b2b;
 }
+.col-6-cart input{
+    display: block;
+    width: 20%;
+    margin-left: 450px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #d73318 !important;
+    background-color: #feeedf !important;
+    background-clip: padding-box;
+    border: 1px solid #d73318 !important;
+}
+.col-6-cart button{
+    width: 150px;
+    height: 50px;
+    background-color: transparent !important;
+    border: 3px solid #d73318 !important;
+    border-radius: 10px !important;
+    color: #d73318 !important;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-family: 'Anton', sans-serif !important;
+}
+.col-6-cart button:hover{
+    width: 150px;
+    height: 50px;
+    background-image: url(/icons/Bite2.png) !important;
+    background-size: cover !important;
+    border: 3px solid #d73318 !important;
+    border-radius: 10px !important;
+    color: #feeedf !important;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-family: 'Anton', sans-serif !important;
+}

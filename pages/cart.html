@@ -63,14 +63,12 @@
 
     <div class="container-fluid" style="background-color: #feeedf; height: 850px;">
         <div class="image-finish">
-            <img src="/icons/finish.png"  height="200px" alt="FInnish each other's sandwiches" style="margin-top: 30px;">
+            <img src="/icons/finish.png"  height="200px" alt="Finnish each other's sandwiches" style="margin-top: 30px;">
         </div>
-        
-            <div class="container-fluid" style="background-color: #feeedf; height: 100vh;">
+        <div class="container-fluid" style="background-color: #feeedf; height: 100vh;">
               
-
-            </div>
-            
+        </div>
+    </div>
 
 
     <footer>
@@ -103,7 +101,36 @@
             </div>
         </div>
     </footer>
+   <script>
+    var cartItems = [];
+
+    var addButtons = document.getElementsByClassName("btn-one");
     
+    for (var i = 0; i < addButtons.length; i++) {
+        addButtons[i].addEventListener("click", addToCart);
+    }
+
+    function addToCart(event) {
+        event.preventDefault();
+        var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
+        cartItems.push(value);
+        updateCartPage();
+    }
+    
+    function updateCartPage() {
+        var cartContainer = document.getElementById("cart-container");
+    
+        
+        cartContainer.innerHTML = "";
+    
+        
+        for (var i = 0; i < cartItems.length; i++) {
+            var cartItem = document.createElement("p");
+            cartItem.textContent = "Item " + (i + 1) + ": $" + cartItems[i];
+            cartContainer.appendChild(cartItem);
+        }
+    }
+    </script> 
 </body>
 
 </html>

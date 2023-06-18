@@ -367,6 +367,41 @@
     font-weight: bold;
     font-family: 'Anton', sans-serif;
 }
+.btn-primary{
+    width: 100px;
+    height: 50px;
+    background-color: transparent !important;
+    border: 3px solid #d73318 !important;
+    border-radius: 10px !important;
+    color: #d73318 !important;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-family: 'Anton', sans-serif !important;
+}
+.btn-primary:hover{
+    width: 100px;
+    height: 50px;
+    background-image: url(/icons/Bite2.png) !important;
+    background-size: cover !important;
+    border: 3px solid #d73318 !important;
+    border-radius: 10px !important;
+    color: #feeedf !important;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-family: 'Anton', sans-serif !important;
+}
 
 .nav-link dropdown-toggle{
     font-family: 'Roboto Condensed', sans-serif;

@@ -426,55 +426,61 @@
       </div>
   </footer>
     
-<script>document.getElementById('orderForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
+  <script>document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
   
-  var breadCost = parseFloat(document.querySelector('input[name="bread"]:checked').value);
-  var meatCost = parseFloat(document.querySelector('input[name="meat"]:checked').value);
-  var toppingsCost = 0;
-  var selectedToppings = document.querySelectorAll('input[name="toppings"]:checked');
-  selectedToppings.forEach(function(topping) {
-    toppingsCost += parseFloat(topping.value);
-  });
-  var seasoningCost = parseFloat(document.querySelector('input[name="season"]:checked').value);
-  var sauceCost = parseFloat(document.querySelector('input[name="sauce"]:checked').value);
-  var addCost = parseFloat(document.querySelector('input[name="add"]:checked').value);
-  var drinkCost = parseFloat(document.querySelector('input[name="drink"]:checked').value);
-  const subName = document.getElementById("itemName").value;
-
+    
+    var breadCost = parseFloat(document.querySelector('input[name="bread"]:checked').value);
+    var meatCost = parseFloat(document.querySelector('input[name="meat"]:checked').value);
+    var toppingsCost = 0;
+    var selectedToppings = document.querySelectorAll('input[name="toppings"]:checked');
+    selectedToppings.forEach(function(topping) {
+      toppingsCost += parseFloat(topping.value);
+    });
+    var seasoningCost = parseFloat(document.querySelector('input[name="season"]:checked').value);
+    var sauceCost = parseFloat(document.querySelector('input[name="sauce"]:checked').value);
+    var addCost = parseFloat(document.querySelector('input[name="add"]:checked').value);
+    var drinkCost = parseFloat(document.querySelector('input[name="drink"]:checked').value);
+    const subName = document.getElementById("itemName").value;
+    localStorage.setItem("itemName", subName);
   
-  var selectedToppings = document.querySelectorAll('#toppings input[type="checkbox"]:checked');
-    if (selectedToppings.length < 5) {
-        event.preventDefault(); 
-          alert('Please choose at least 5 toppings.'); 
-        };
-
-
-  var totalCost = breadCost + meatCost + toppingsCost + seasoningCost + sauceCost + addCost + drinkCost;
-
+    
+    var selectedToppings = document.querySelectorAll('#toppings input[type="checkbox"]:checked');
+      if (selectedToppings.length < 5) {
+          event.preventDefault(); 
+            alert('Please choose at least 5 toppings.'); 
+          };
   
-  var totalCostElement = document.getElementById('totalCost');
-  totalCostElement.textContent = 'Total Cost: $' + totalCost.toFixed(2);
- 
- 
-  const formValues = {
-  breadCost: breadCost,
-  meatCost: meatCost,
-  toppingsCost: toppingsCost,
-  seasoningCost: seasoningCost,
-  sauceCost: sauceCost,
-  addCost: addCost,
-  drinkCost: drinkCost,
-};
-  localStorage.setItem("formValues", JSON.stringify(formValues));
-
-
   
-  alert('The kitchen has received your Sub order: ' + subName + '! Total cost: $' + totalCost.toFixed(2) + ' Go to Cart for payment options.');
+    var totalCost = breadCost + meatCost + toppingsCost + seasoningCost + sauceCost + addCost + drinkCost;
+  
+    
+    var totalCostElement = document.getElementById('totalCost');
+    totalCostElement.textContent = 'Total Cost: $' + totalCost.toFixed(2);
    
+   
+    const formValues = {
+    breadCost: breadCost,
+    meatCost: meatCost,
+    toppingsCost: toppingsCost,
+    seasoningCost: seasoningCost,
+    sauceCost: sauceCost,
+    addCost: addCost,
+    drinkCost: drinkCost,
+  };
+    localStorage.setItem("formValues", JSON.stringify(formValues));
   
-});</script>
+    alert('The kitchen has received your Sub order: ' + subName + '! Total cost: $' + totalCost.toFixed(2) + ' Go to Cart for payment options.');
+     
+    var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  
+    cartItems.push(totalCost.toFixed(2));
+  
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    window.location.href = "cart.html";
+    });
+  </script>
+  
 
 
 </body>

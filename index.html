@@ -140,7 +140,7 @@
                           <p>by Pablo</p>
                           <hr class="my-4">
                           <p class="card-text"><strong>BREAD: </strong>Garlic Toasted<br><strong>PROTEIN: </strong>shredded Steak<br><strong>CHEESE: </strong>shredded Cheddar<br><strong>VEG: </strong>Green peppers, Jalapeno peppers, Pepperdew peppers, Onions, Tomato<br><strong>SEASONING: </strong>Peri-peri<br><strong>SAUCE: </strong>Mayonnaise, Tomato<br><strong>ADD ONS: </strong>Smashed avocado<br><strong>DRINK: </strong>Slushie</p>
-                          <button type="button" id="spicy" value="7.60" class="btn-one">Add $7.60</button>
+                          <button type="button" id="myButton" value="Button 2" class="btn-one">Add $7.60</button>
                         </div>
                       </div>
                 </div>
@@ -267,20 +267,24 @@
     </footer>
     <script>
         var addButtons = document.getElementsByClassName("btn-one");
-    
+        
         for (var i = 0; i < addButtons.length; i++) {
-            addButtons[i].addEventListener("click", addToCart);
+        addButtons[i].addEventListener("click", addToCart);
         }
-    
+
         function addToCart(event) {
-            event.preventDefault();
-            var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
-            addToCartPage(value);
+         event.preventDefault();
+         var value = parseFloat(this.parentNode.parentNode.getAttribute("value"));
+         addToCartPage(value);
         }
-    
+
         function addToCartPage(value) {
-            console.log("Value added to cart: $" + value);
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(value);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+         console.log("Item added to cart: $" + value);
         }
+
     </script>
 </body>
 </html>

@@ -66,13 +66,18 @@
             <img src="/icons/finish.png"  height="200px" alt="Finnish each other's sandwiches" style="margin-top: 30px;">
         </div>
         <div class="container-fluid" style="background-color: #feeedf; height: 100vh;">
-            <div class="col-6-cart">
-                <h2>Your Cart</h2>
-                <h4>Items Ordered:</h4>
-                <ul id="itemsOrdered"></ul>
-                <div id="cart-container"></div>
-                <p>Total Cost: $<span id="totalCost">0</span></p>
-            </div>
+            <div class="container">
+                <div class="order">
+                    <div class="col-6-cart">
+                    <h2>Your Cart</h2>
+                    <h4>Subs Ordered:</h4>
+                     <ul id="itemsOrdered"></ul>
+                     <div id="cart-container"></div>
+                    <button type="button" class="btn-pay">
+                    <h2>Pay</h2>
+                    </button>
+                </div>
+           </div>
         </div>
     </div>
 
@@ -85,30 +90,43 @@
                         <img src="/icons/LogoLight.png" height="150px" alt="Logo">
                     </div>
                 </div>
-
+  
                 <div class="col-4">
                     <div class="col-4-copy">
                         <h3>Super Subs</h3>
                         <p>TM & Copyright 2022 Super Subs Corporation. <br> All Rights Reserved.</p>
                     </div>
                 </div>
-
+  
                 <div class="col-4">
                     <div class="col-4-icons">
-                        <img src="/icons/InstaLight.png" height="80px" alt="Super Subs Instagram" style="margin-top: 20px; margin-bottom: 10px;">
+                        <a href="https://www.instagram.com/"><img src="/icons/InstaLight.png" height="80px" alt="Super Subs Instagram" style="margin-top: 20px; margin-bottom: 10px;"></a>
                     </div>
                     <div class="col-4-icons">
-                        <img src="/icons/FacebookLight.png" height="80px" alt="Super Subs Facebook" style="margin-bottom: 10px;">
+                        <a href="https://web.facebook.com/"><img src="/icons/FacebookLight.png" height="80px" alt="Super Subs Facebook" style="margin-bottom: 10px;"></a>
                     </div>
                     <div class="col-4-icons">
-                        <img src="/icons/TwitterLight.png" height="80px" alt="Super Subs Twitter">
+                        <a href="https://twitter.com/"><img src="/icons/TwitterLight.png" height="80px" alt="Super Subs Twitter"></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-   <script>
-        var cartItems = [];
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+        
+        const itemName = localStorage.getItem("itemName") || "";
+
+        const btnPay = document.querySelector(".btn-pay");
+
+        btnPay.addEventListener("click", function() {
+        localStorage.removeItem("cartItems");
+        location.reload();})
+     
+        document.getElementById("itemName").textContent = itemName});
+
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        updateCartPage();
 
         var addButtons = document.getElementsByClassName("btn-one");
     
@@ -130,13 +148,13 @@
             cartContainer.innerHTML = "";
     
         
-         for (var i = 0; i < cartItems.length; i++) {
-            var cartItem = document.createElement("p");
-            cartItem.textContent = "Item " + (i + 1) + ": $" + cartItems[i];
-            cartContainer.appendChild(cartItem);
+            for (var i = 0; i < cartItems.length; i++) {
+                var cartItem = document.createElement("p");
+                var itemName = localStorage.getItem("itemName") || "";
+                cartItem.textContent = "Sub: " + itemName + " - $" + cartItems[i];
+                cartContainer.appendChild(cartItem);
             }
         }
-   
         const totalCostElement = document.getElementById("totalCost");
         const itemsOrderedElement = document.getElementById("itemsOrdered");
 
@@ -169,16 +187,16 @@
         radio.addEventListener("change", calculateTotalCost);
         });
         document.querySelectorAll('input[name="meat"]').forEach(checkbox => {
-  checkbox.addEventListener("change", calculateTotalCost);
-});
+        checkbox.addEventListener("change", calculateTotalCost);
+        });
         document.querySelectorAll('input[name="toppings"]').forEach(checkbox => {
         checkbox.addEventListener("change", calculateTotalCost);
         });
         document.getElementById("orderForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  updateItemsOrdered();
-});
-    </script> 
-</body>
+        event.preventDefault();
+         updateItemsOrdered();
+         });
+
+    </script>
 
 </html>

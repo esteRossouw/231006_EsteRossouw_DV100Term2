@@ -387,16 +387,25 @@
                   </label>
                   <span class="milk-price">$2</span>
                   </div> 
-                  <span id="totalCost"></span>
-                  <div id="selectedOptions"></div>
-                  <span id="price"></span>
+                  <div class="cost"><span id="totalCost"></span></div>
+                  
+
                   <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>
         </div>
     </div>
-    
+    <section>
+      <div class="container">
+        <h2>Your Cart</h2>
+        <ul id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p id="cartTotal">Total: $0</p>
+    </div>
+
+    </section>
     
     <footer>
         <div class="container-fluid" style="background-color: #d73318; margin-top: -50px; height: 300px;">
@@ -432,7 +441,7 @@
 <script>document.getElementById('orderForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Get the selected options from the form
+  
   var breadCost = parseFloat(document.querySelector('input[name="bread"]:checked').value);
   var meatCost = parseFloat(document.querySelector('input[name="meat"]:checked').value);
   var toppingsCost = 0;
@@ -445,16 +454,23 @@
   var addCost = parseFloat(document.querySelector('input[name="add"]:checked').value);
   var drinkCost = parseFloat(document.querySelector('input[name="drink"]:checked').value);
   const subName = document.getElementById("itemName").value;
- 
-  // Calculate the total cost
+
+  
+  var selectedToppings = document.querySelectorAll('#toppings input[type="checkbox"]:checked');
+    if (selectedToppings.length < 5) {
+        event.preventDefault(); 
+          alert('Please choose at least 5 toppings.'); 
+        };
+
+
   var totalCost = breadCost + meatCost + toppingsCost + seasoningCost + sauceCost + addCost + drinkCost;
 
-  // Display the total cost at the bottom of the form
+  
   var totalCostElement = document.getElementById('totalCost');
   totalCostElement.textContent = 'Total Cost: $' + totalCost.toFixed(2);
  
- // Store the form values in the browser's storage
-const formValues = {
+ 
+  const formValues = {
   breadCost: breadCost,
   meatCost: meatCost,
   toppingsCost: toppingsCost,
@@ -463,12 +479,15 @@ const formValues = {
   addCost: addCost,
   drinkCost: drinkCost,
 };
-localStorage.setItem("formValues", JSON.stringify(formValues));
+  localStorage.setItem("formValues", JSON.stringify(formValues));
 
 
-  // Show an alert message
+  
   alert('The kitchen has received your Sub order: ' + subName + '! Total cost: $' + totalCost.toFixed(2) + ' Go to Cart for payment options.');
-});</script><script src="path/to/your/script.js"></script>
+   
+  
+});</script>
+
 
 </body>
 </html>

@@ -160,7 +160,7 @@
             totalCost += cartItems[i]; 
             }
 
-            totalCostContainer.textContent = "Total Cost: $" + totalCost.toFixed(2); // Display the total cost
+            totalCostContainer.textContent = "Total Cost: $" + totalCost.toFixed(2); 
             }
             const itemsOrderedElement = document.getElementById("itemsOrdered");
 
@@ -197,22 +197,25 @@
             });
 
             var discountCodeInput = document.getElementById("discountCodeInput");
-            var applyDiscountButton = document.getElementById("applyDiscountButton");
+             var applyDiscountButton = document.getElementById("applyDiscountButton");
+             var totalCostElement = document.getElementById("totalCostContainer");
 
-            applyDiscountButton.addEventListener("click", applyDiscount);
+             applyDiscountButton.addEventListener("click", applyDiscount);
 
             function applyDiscount() {
-            var discountCode = discountCodeInput.value;
-            if (discountCode === "mikesChoice") { // Answer is mikesChoice
-            var totalCost = parseFloat(totalCostElement.textContent);
-            var discountedCost = totalCost * 0.1; 
-            totalCostElement.textContent = discountedCost.toFixed(2);
-            alert("Mike's special discount applied successfully!");
-            } else {
-            alert("Invalid discount code.");
-            }
-            }
-            updateCartPage();
+             var discountCode = discountCodeInput.value;
+             if (discountCode === "mikesChoice") {
+             var totalCost = parseFloat(totalCostElement.textContent.split("$")[1]);
+             var discountedCost = totalCost * 0.9; // 10% discount
+             totalCostElement.textContent = "Total Cost: $" + discountedCost.toFixed(2);
+             alert("Mike's special discount applied successfully!");
+             updateCartPage();
+             } else {
+                 alert("Invalid discount code.");
+             }
+             }
+
+            
     
     </script>
 
